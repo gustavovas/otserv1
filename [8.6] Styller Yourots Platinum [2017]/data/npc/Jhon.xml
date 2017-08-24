@@ -1,0 +1,9 @@
+<npc name="Jhon" script="little_boat.lua" floorchange="0" access="5" level="1" maglevel="1">
+	<health now="150" max="150"/>
+	<look type="151" head="114" body="12" legs="90" feet="115" addons="1" corpse="2212"/>
+	<parameters>
+        <parameter key="module_travel" value="1"/>
+	<parameter key="message_greet" value="Hello |PLAYERNAME|. You don't know my ship rotes? say travel and I help you!" />
+        <parameter key="travel_destinations" value="lightning city,120,38,7,100;undead region,16,48,7,100;amazon camp,19,117,7,100;dark cathedral,29,161,7,100;wyrm lair,18,201,7,100;dragon lair,72,237,7,100;nightmare cemiter,100,282,7,100;training forteress,128,169,7,100;magician land,452,76,7,100;hydra lair,210,129,7,100;spider camp,205,94,7,100"/>
+	</parameters>
+</npc>

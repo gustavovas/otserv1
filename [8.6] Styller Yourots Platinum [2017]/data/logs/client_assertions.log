@@ -1,0 +1,313 @@
+----- 15/07/2010 21:24:32 - GOD Raymond (127.0.0.1) -----
+Comment: 
+Graphic Engine: DirectX9 (2)
+Operating System: Windows XP Professional in BRA
+Processor: Intel Pentium 4 3.00GHZ
+Video Card: NVIDIA GeForce FX 5200
+Last Packet Types: 163 108 180 106 106 160 133 132 131 140
+Last Packet: 140 191 008 000 064 000 180 024 031 000 089 111 117 032 100 101
+Player Position: [155,57,8]
+Player Name: GOD Raymond (Styller)
+Player Action: 049 050 055 046 048 046 048 046 049 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Network.cpp 946: exception occurred (ErrorCode = 0), reason:
+Control.cpp 1331: exception occurred (Type = 163) (MainWindow = 281249888), reason:
+Communication.cpp 2707: exception occurred, reason:
+Network.cpp 478: exception occurred, reason:
+Utils.cpp 512: assertion failed (Position = 200) (Size = 200), reason:
+Position<=Size-4
+Thu Jul 15 21:23:54 2010
+Debug Assertion 8.60 Utils.cpp 512
+
+----- 15/07/2010 21:28:23 - GOD Raymond (127.0.0.1) -----
+Comment: 
+Graphic Engine: DirectX9 (2)
+Operating System: Windows XP Professional in BRA
+Processor: Intel Pentium 4 3.00GHZ
+Video Card: NVIDIA GeForce FX 5200
+Last Packet Types: 163 160 133 132 131 140 180 140 160 133
+Last Packet: 163 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000
+Player Position: [155,57,8]
+Player Name: GOD Raymond (Styller)
+Player Action: 049 050 055 046 048 046 048 046 049 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Network.cpp 946: exception occurred (ErrorCode = 0), reason:
+Control.cpp 1331: exception occurred (Type = 163) (MainWindow = 282605944), reason:
+Communication.cpp 2707: exception occurred, reason:
+Network.cpp 478: exception occurred, reason:
+Utils.cpp 512: assertion failed (Position = 9) (Size = 9), reason:
+Position<=Size-4
+Thu Jul 15 21:24:36 2010
+Debug Assertion 8.60 Utils.cpp 512
+
+----- 28/07/2010 21:52:39 - GOD Raymond (127.0.0.1) -----
+Comment: 
+Graphic Engine: DirectX9 (2)
+Operating System: Windows XP Professional in BRA
+Processor: Intel Pentium 4 3.00GHZ
+Video Card: NVIDIA GeForce FX 5200
+Last Packet Types: 200 030 109 170 160 160 160 160 160 160
+Last Packet: 200 111 001 078 068 039 076 000 026 128 000 007 000 067 105 116
+Player Position: [180,68,7]
+Player Name: GOD Raymond (Styller)
+Player Action: 049 050 055 046 048 046 048 046 049 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Network.cpp 946: exception occurred (ErrorCode = 0), reason:
+Control.cpp 1331: exception occurred (Type = 200) (MainWindow = 281249888), reason:
+Communication.cpp 3113: exception occurred, reason:
+Communication.cpp 3104: assertion failed (AvailableOutfits = 26), reason:
+In(AvailableOutfits,1,AVAILABLE_OUTFITS)
+Wed Jul 28 21:15:28 2010
+Debug Assertion 8.60 Communication.cpp 3104
+
+----- 1/7/2014 23:18:6 - Gervinho (152.246.96.92) -----
+Comment: 
+Graphic Engine: DirectX5 (0)
+Operating System: Windows 7 Ultimate Edition 64 Bit in BRA
+Processor: Intel Atom 330 @ 1.6
+Video Card: Intel (R) 82945
+Last Packet Types: 160 160 160 160 160 160 120 160 120 160
+Last Packet: 010 175 039 000 016 050 000 000 100 160 000 051 000 007 180 028
+Player Position: [160,51,7]
+Player Name: Gervinho (Level: 8 Voc: S)
+Player Action: 049 057 056 046 053 048 046 049 054 049 046 049 051 054 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Player.cpp 465: exception occurred, reason:
+Control.cpp 1499: exception occurred (MaW: B07F58 MoW: 0 ), reason:
+Control.cpp 386: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 138: exception occurred (Surface = 1), reason:
+NWin32Exception.cpp 50: win32 exception occurred, reason:
+access violation (read attempt at FFFFFFE9)
+Tue Jul 01 23:17:40 2014
+Debug Assertion 8.60 NWin32Exception.cpp 50
+
+----- 1/7/2014 23:21:9 - Cannabis Sativa (186.226.89.58) -----
+Comment: 
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in BRA
+Processor: Intel Core 2 DUO T6500
+Video Card: Mobile Intel (R) 45 EX
+Last Packet Types: 160 160 160 140 160 160 140 160 160 160
+Last Packet: 160 013 002 013 002 097 167 000 000 009 089 103 000 076 000 004
+Player Position: [83,187,8]
+Player Name: Cannabis Sativa (Level: 8 Voc: D)
+Player Action: 049 057 056 046 053 048 046 049 054 049 046 049 051 054 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Player.cpp 465: exception occurred, reason:
+Control.cpp 1728: exception occurred (MessageType: 0 MaW: 26E7F58 MoW: 0), reason:
+Control.cpp 1723: exception occurred, reason:
+Control.cpp 386: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 138: exception occurred (Surface = 1), reason:
+GUI.cpp 1559: exception occurred (Surface = 1), reason:
+MapWindow.cpp 869: exception occurred (Surface = 1), reason:
+MapWindow.cpp 549: exception occurred (Obj = 5723), reason:
+MapWindow.cpp 1146: exception occurred (posx = 352) (posy = 96), reason:
+MapWindow.cpp 913: exception occurred (Obj = 2929), reason:
+MapWindow.cpp 1233: exception occurred (Debug: 11 Type: 2929 Coord: 87/185/8 PX: 1 PY: 1 PZ: 1 Ph: 2 DX: 0 DY: 0 W: 2 H: 1 L: 1 X: 1 Y: 1 L: 1 S: 2969), reason:
+MapWindow.cpp 1341: exception occurred (SpriteNumber = 2969), reason:
+MapWindow.cpp 1417: exception occurred (FieldX = 12) (FieldY = 4), reason:
+surfaceDX9.cpp 1453: exception occurred, reason:
+surfaceDX9.cpp 1421: exception occurred, reason:
+surfaceDX9.cpp 426: exception occurred, reason:
+surfaceDX9.cpp 404: exception occurred (DebugProgress = 4) ((int) pBuffer = 0), reason:
+NWin32Exception.cpp 50: win32 exception occurred, reason:
+access violation (read attempt at 75455604)
+Tue Jul 01 23:20:47 2014
+Debug Assertion 8.60 NWin32Exception.cpp 50
+
+----- 2/7/2014 0:20:3 - Yaya Toure (189.84.169.33) -----
+Comment: 
+Graphic Engine: DirectX5 (0)
+Operating System: Windows XP Professional in BRA
+Processor: Intel Celeron 2.13GHZ
+Video Card: Chrome VIA/S3G U
+Last Packet Types: 133 132 131 106 108 140 140 131 170 170
+Last Packet: 140 137 009 000 064 100 140 137 009 000 064 100 108 199 000 254
+Player Position: [204,257,7]
+Player Name: Yaya Toure (Level: 22 Voc: RP)
+Player Action: 049 057 056 046 053 048 046 049 054 049 046 049 051 054 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Player.cpp 465: exception occurred, reason:
+Control.cpp 1728: exception occurred (MessageType: 55 MaW: 3E73680 MoW: 0), reason:
+Control.cpp 1693: exception occurred (Type = 55), reason:
+NWin32Exception.cpp 50: win32 exception occurred, reason:
+access violation (read attempt at 0000002C)
+Wed Jul 02 00:19:02 2014
+Debug Assertion 8.60 NWin32Exception.cpp 50
+
+----- 2/7/2014 3:30:31 - Cannabis Sativa (186.226.89.58) -----
+Comment: 
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in BRA
+Processor: Intel Core 2 DUO T6500
+Video Card: Mobile Intel (R) 45 EX
+Last Packet Types: 030 170 109 109 030 109 180 180 131 180
+Last Packet: 030 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000
+Player Position: [159,69,7]
+Player Name: Cannabis Sativa (Level: 171 Voc: ED)
+Player Action: 049 057 056 046 053 048 046 049 054 049 046 049 051 054 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Player.cpp 465: exception occurred, reason:
+Control.cpp 1728: exception occurred (MessageType: 0 MaW: 347F58 MoW: 0), reason:
+Control.cpp 1723: exception occurred, reason:
+Control.cpp 386: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 138: exception occurred (Surface = 1), reason:
+GUI.cpp 1559: exception occurred (Surface = 1), reason:
+MapWindow.cpp 869: exception occurred (Surface = 1), reason:
+MapWindow.cpp 803: exception occurred, reason:
+surfaceDX9.cpp 793: exception occurred, reason:
+NWin32Exception.cpp 50: win32 exception occurred, reason:
+access violation (read attempt at 75414A15)
+Wed Jul 02 03:29:12 2014
+Debug Assertion 8.60 NWin32Exception.cpp 50
+
+----- 2/7/2014 13:28:56 - Cannabis Sativa (186.226.89.58) -----
+Comment: 
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in BRA
+Processor: Intel Core 2 DUO T6500
+Video Card: Mobile Intel (R) 45 EX
+Last Packet Types: 180 180 131 180 180 143 160 210 210 210
+Last Packet: 010 216 128 000 016 050 000 000 100 144 004 060 004 007 153 001
+Player Position: [1168,1084,7]
+Player Name: Cannabis Sativa (Level: 171 Voc: ED)
+Player Action: 049 057 056 046 053 048 046 049 054 049 046 049 051 054 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Player.cpp 465: exception occurred, reason:
+Control.cpp 1728: exception occurred (MessageType: 0 MaW: 327F58 MoW: 0), reason:
+Control.cpp 1723: exception occurred, reason:
+Control.cpp 386: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 138: exception occurred (Surface = 1), reason:
+GUI.cpp 1559: exception occurred (Surface = 1), reason:
+MapWindow.cpp 869: exception occurred (Surface = 1), reason:
+MapWindow.cpp 822: exception occurred, reason:
+Graphics.cpp 1368: exception occurred (Surface = 1) (FontNumber = 2), reason:
+Graphics.cpp 1356: exception occurred (Surface = 1) (FontNumber = 2), reason:
+surfaceDX9.cpp 1371: exception occurred, reason:
+surfaceDX9.cpp 1421: exception occurred, reason:
+surfaceDX9.cpp 426: exception occurred, reason:
+surfaceDX9.cpp 404: exception occurred (DebugProgress = 5) ((int) pBuffer = 0), reason:
+NWin32Exception.cpp 50: win32 exception occurred, reason:
+access violation (read attempt at 7542CE09)
+Wed Jul 02 13:28:23 2014
+Debug Assertion 8.60 NWin32Exception.cpp 50
+
+----- 3/7/2014 17:39:13 - Yaphets (177.137.6.200) -----
+Comment: 
+Graphic Engine: OpenGL (1)
+Operating System: Windows 7 Starter Edition 32 Bit in BRA
+Processor: Intel Pentium P6200 @ 2
+Video Card: Intel (R) HD GR
+Last Packet Types: 109 107 107 107 107 107 133 132 131 106
+Last Packet: 107 194 000 247 000 007 001 099 000 156 030 000 016 000 107 194
+Player Position: [186,247,7]
+Player Name: Yaphets (Level: 8 Voc: P)
+Player Action: 049 057 056 046 053 048 046 049 054 049 046 049 051 054 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Network.cpp 946: exception occurred (ErrorCode = 0), reason:
+Control.cpp 1331: exception occurred (Type = 109) (MainWindow = 28606296), reason:
+Communication.cpp 2151: exception occurred, reason:
+Communication.cpp 2142: MoveCreature has been received for a coordinate where there is no creature anymore [bug0000017] (4855, 0), reason:
+ sx: 11 sy: 9 sz: 0
+ Position: 1
+ zx: 10 zy: 9 zz: 0
+ dx: -1 dy: 0 dz: 0
+ abs_sx: 189 abs_sy: 250 abs_sz: 7
+ abs_zx: 188 abs_zy: 250 abs_zz: 7
+ Start Cylinder (1):  (416,0) (4855,0)
+ Start Cylinder (2):  (416,0) (4855,0)(-)(-)(-)(-)(-)(-)(-)(-)
+ Destination Cylinder (1):  (416,0) (4855,0)
+ Destination Cylinder (2):  (416,0) (4855,0)(-)(-)(-)(-)(-)(-)(-)(-)
+Thu Jul 03 13:21:40 2014
+Debug Assertion 8.60 Communication.cpp 2142
+
+----- 4/7/2014 0:28:18 - Churros Cremoso (189.48.238.86) -----
+Comment: 
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 32 Bit in BRA
+Processor: Dual Core Intel Pentium T4500 @ 2
+Video Card: Mobile Intel FAMíLIA D
+Last Packet Types: 101 109 162 146 101 109 102 109 102 109
+Last Packet: 109 160 000 056 000 007 002 160 000 055 000 007 101 180 028 000
+Player Position: [160,55,7]
+Player Name: Churros Cremoso (Level: 8 Voc: D)
+Player Action: 049 057 056 046 053 048 046 049 054 049 046 049 051 054 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Player.cpp 465: exception occurred, reason:
+Control.cpp 1728: exception occurred (MessageType: 0 MaW: 917F40 MoW: 0), reason:
+Control.cpp 1723: exception occurred, reason:
+Control.cpp 386: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 138: exception occurred (Surface = 1), reason:
+NWin32Exception.cpp 50: win32 exception occurred, reason:
+access violation (read attempt at FFFFFFE9)
+Fri Jul 04 00:27:22 2014
+Debug Assertion 8.60 NWin32Exception.cpp 50
+
+----- 4/7/2014 1:24:21 - Balalaika (186.226.89.58) -----
+Comment: 
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in BRA
+Processor: Intel Core 2 DUO T6500
+Video Card: Mobile Intel (R) 45 EX
+Last Packet Types: 131 131 107 107 107 107 107 107 107 107
+Last Packet: 131 190 000 006 001 007 004 000 000 000 000 000 000 000 000 000
+Player Position: [198,258,7]
+Player Name: Balalaika (Level: 8 Voc: K)
+Player Action: 049 057 056 046 053 048 046 049 054 049 046 049 051 054 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Player.cpp 465: exception occurred, reason:
+Control.cpp 1728: exception occurred (MessageType: 0 MaW: 307F58 MoW: 0), reason:
+Control.cpp 1723: exception occurred, reason:
+Control.cpp 386: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 138: exception occurred (Surface = 1), reason:
+GUI.cpp 1559: exception occurred (Surface = 1), reason:
+MapWindow.cpp 869: exception occurred (Surface = 1), reason:
+MapWindow.cpp 549: exception occurred (Obj = 4602), reason:
+MapWindow.cpp 1146: exception occurred (posx = 320) (posy = 256), reason:
+MapWindow.cpp 913: exception occurred (Obj = 2111), reason:
+MapWindow.cpp 1233: exception occurred (Debug: 11 Type: 2111 Coord: 201/261/7 PX: 1 PY: 1 PZ: 1 Ph: 2 DX: 4 DY: 4 W: 1 H: 1 L: 1 X: 1 Y: 1 L: 1 S: 2669), reason:
+MapWindow.cpp 1341: exception occurred (SpriteNumber = 2669), reason:
+MapWindow.cpp 1417: exception occurred (FieldX = 10) (FieldY = 8), reason:
+surfaceDX9.cpp 1453: exception occurred, reason:
+surfaceDX9.cpp 1421: exception occurred, reason:
+surfaceDX9.cpp 426: exception occurred, reason:
+surfaceDX9.cpp 404: exception occurred (DebugProgress = 3) ((int) pBuffer = 0), reason:
+NWin32Exception.cpp 50: win32 exception occurred, reason:
+access violation (read attempt at 7542D8BC)
+Fri Jul 04 01:23:50 2014
+Debug Assertion 8.60 NWin32Exception.cpp 50
+
+----- 5/7/2014 14:1:16 - Macaco Louco (186.226.89.58) -----
+Comment: 
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in BRA
+Processor: Intel Core 2 DUO T6500
+Video Card: Mobile Intel (R) 45 EX
+Player.cpp 361: exception occurred, reason:
+NWin32Exception.cpp 50: win32 exception occurred, reason:
+access violation (read attempt at 709B537A)
+Sat Jul 05 13:59:56 2014
+Debug Assertion 8.60 NWin32Exception.cpp 50
+
+----- 7/7/2014 14:25:45 - Piracanjuba (186.210.122.148) -----
+Comment: 
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in BRA
+Processor: Intel Celeron 1000M @ 1
+Video Card: Intel (R) HD GR
+Last Packet Types: 109 109 106 109 030 160 108 109 109 109
+Last Packet: 109 131 000 092 000 005 001 130 000 092 000 005 000 000 000 000
+Player Position: [121,92,6]
+Player Name: Piracanjuba (Level: 43 Voc: P)
+Player Action: 049 057 056 046 053 048 046 049 054 049 046 049 051 054 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Player.cpp 465: exception occurred, reason:
+Control.cpp 1728: exception occurred (MessageType: 0 MaW: 2137F30 MoW: 0), reason:
+Control.cpp 1723: exception occurred, reason:
+Control.cpp 386: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 138: exception occurred (Surface = 1), reason:
+NWin32Exception.cpp 50: win32 exception occurred, reason:
+access violation (read attempt at FFFFFFE9)
+Mon Jul 07 14:24:52 2014
+Debug Assertion 8.60 NWin32Exception.cpp 50
+

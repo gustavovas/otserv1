@@ -1,0 +1,103 @@
+[1/7/2014 5:34:57] /addskill GOD Kraban,level,32
+[1/7/2014 5:35:23] /addskill GOD Kraban,level,30
+[1/7/2014 5:35:32] /addskill GOD Kraban,level,100
+[1/7/2014 5:42:58] /vip del god kraban
+[1/7/2014 5:43:35] /t
+[1/7/2014 5:53:8] /reload globalevents
+[1/7/2014 5:53:57] /reload globalevents
+[1/7/2014 6:0:19] /reload talkactions
+[1/7/2014 6:0:21] /save
+[1/7/2014 6:0:31] !guildpoints
+[1/7/2014 20:18:38] /ghost
+[1/7/2014 20:18:52] /reload creaturescripts
+[1/7/2014 20:19:33] /addskill GOD Kraban,level,40
+[1/7/2014 20:23:45] /reload creaturescripts
+[1/7/2014 20:23:54] /addskill GOD Kraban,level,30
+[1/7/2014 20:24:13] /bc j Reiniciando o server para abertura oficial.
+[1/7/2014 20:24:15] /bc j Reiniciando o server para abertura oficial.
+[1/7/2014 20:24:20] /save
+[1/7/2014 20:25:42] /save
+[1/7/2014 20:29:9] /ghost
+[1/7/2014 20:29:11] /ghost
+[1/7/2014 20:49:51] /reload talkactions
+[1/7/2014 20:58:43] /reload config
+[1/7/2014 23:48:12] /reload talkactions
+[2/7/2014 0:14:39] /reload creaturevents
+[2/7/2014 0:14:47] /reload creatureevents
+[2/7/2014 0:44:34] /reload actions
+[2/7/2014 12:17:15] /reload creaturescripts
+[2/7/2014 18:37:18] /bc o O server sera reiniciado para melhorias ! voltamos em 1 minuto.
+[2/7/2014 18:37:20] /bc o O server sera reiniciado para melhorias ! voltamos em 1 minuto.
+[2/7/2014 18:37:22] /bc o O server sera reiniciado para melhorias ! voltamos em 1 minuto.
+[2/7/2014 18:37:26] /save
+[2/7/2014 18:44:45] /t
+[3/7/2014 0:7:40] /r
+[3/7/2014 0:7:42] /r
+[3/7/2014 0:7:47] /r
+[3/7/2014 1:7:51] /i stonecutter axe
+[3/7/2014 4:23:30] /bc o O Server será reiniciado para melhorias no OT. Voltamos em no maximo 2 minutos.
+[3/7/2014 4:23:31] /bc o O Server será reiniciado para melhorias no OT. Voltamos em no maximo 2 minutos.
+[3/7/2014 4:23:48] /save
+[3/7/2014 4:33:14] /t
+[3/7/2014 4:33:24] /goto marcos~
+[3/7/2014 4:36:5] /kick marcos teixeira
+[3/7/2014 4:36:27] /goto marcos~
+[3/7/2014 4:36:35] /info marcos teixeira
+[3/7/2014 4:36:42] /info marcos teixeira
+[3/7/2014 4:36:45] /info marcos teixeira
+[3/7/2014 4:36:50] /goto marcos~
+[3/7/2014 4:36:52] /info marcos teixeira
+[3/7/2014 4:37:4] /t
+[3/7/2014 4:38:22] /t
+[3/7/2014 4:39:17] /t
+[3/7/2014 21:57:15] /reload creaturescripts
+[6/7/2014 19:18:10] /reload creatureevets
+[6/7/2014 19:18:16] /reload creatureevents
+[6/7/2014 21:21:43] /reload config
+[6/7/2014 21:21:52] /reload globalevents
+[6/7/2014 21:22:1] /goto enchan~
+[6/7/2014 21:22:6] /t
+[6/7/2014 21:22:22] /goto oli~
+[6/7/2014 21:22:27] /goto leslie~
+[6/7/2014 21:22:33] /t
+[7/7/2014 4:4:43] /goto oliver~
+[7/7/2014 4:4:47] /t
+[7/7/2014 4:4:50] /save
+[7/7/2014 4:13:36] /r
+[7/7/2014 4:13:45] /i 1484
+[7/7/2014 4:13:54] /r
+[7/7/2014 4:13:59] /i 1484
+[7/7/2014 14:38:1] /bc o O Server será reiniciado rapidamente para que melhorias no mapa sejam efetuadas. Voltamos em 1 minuto.
+[7/7/2014 14:38:3] /bc o O Server será reiniciado rapidamente para que melhorias no mapa sejam efetuadas. Voltamos em 1 minuto.
+[7/7/2014 14:38:14] /save
+[7/7/2014 14:40:34] /t
+[7/7/2014 14:40:47] /t
+[7/7/2014 14:41:7] /t
+[7/7/2014 14:41:17] /t
+[7/7/2014 14:41:32] /t
+[7/7/2014 14:41:42] /t
+[7/7/2014 14:45:43] /up
+[7/7/2014 14:46:38] /t
+[7/7/2014 17:45:4] /t
+[7/7/2014 17:46:19] /a 90
+[7/7/2014 17:46:21] /a 90
+[7/7/2014 17:46:24] /a 90
+[7/7/2014 17:46:26] /a 90
+[7/7/2014 17:46:28] /a 90
+[7/7/2014 17:46:31] /a 30
+[7/7/2014 17:46:53] /a 3
+[7/7/2014 17:47:6] /up
+[7/7/2014 17:47:7] /up
+[7/7/2014 17:47:9] /up
+[7/7/2014 17:47:13] /a 3
+[7/7/2014 17:48:7] /t
+[7/7/2014 17:52:10] /t
+[7/7/2014 17:52:20] /goto ushuriel
+[7/7/2014 17:53:10] /t
+[7/7/2014 18:10:2] /reload creaturescripts
+[7/7/2014 22:29:10] /i 5903
+[8/7/2014 1:13:23] /i 2160
+[8/7/2014 1:43:58] /t
+[8/7/2014 1:44:40] /bc o O BIG WAR sera reiniciado para que novas melhorias no sistema de guild seja implantado! Voltamos em 1 minuto.
+[8/7/2014 1:44:41] /bc o O BIG WAR sera reiniciado para que novas melhorias no sistema de guild seja implantado! Voltamos em 1 minuto.
+[8/7/2014 1:45:19] /save

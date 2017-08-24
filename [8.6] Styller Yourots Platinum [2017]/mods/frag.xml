@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<mod name="rank frag" version="1.0" author="Vodkart" contact="xtibia.com" enabled="yes">  
+<config name="rankf_func"><![CDATA[
+function getPlayerFrags(cid)
+    local time = os.time()
+    local times = {today = (time - 86400), week = (time - (7 * 86400))}
+    local contents, result = {day = {}, week = {}, month = {}}, db.getResult("SELECT `pd`.`date`, `pd`.`level`, `p`.`name` FROM `player_killers` pk LEFT JOIN `killers` k ON `pk`.`kill_id` = `k`.`id` LEFT JOIN `player_deaths` pd ON `k`.`death_id` = `pd`.`id` LEFT JOIN `players` p ON `pd`.`player_id` = `p`.`id` WHERE `pk`.`player_id` = " .. getPlayerGUID(cid) .. " AND `k`.`unjustified` = 1 AND `pd`.`date` >= " .. (time - (30 * 86400)) .. " ORDER BY `pd`.`date` DESC")
+    if(result:getID() ~= -1) then
+        repeat
+            local content = {date = result:getDataInt("date")}
+            if(content.date > times.today) then
+                table.insert(contents.day, content)
+            elseif(content.date > times.week) then
+                table.insert(contents.week, content)
+            else
+                table.insert(contents.month, content)
+            end
+        until not result:next()
+        result:free()
+    end
+    local size = {day = table.maxn(contents.day),week = table.maxn(contents.week),month = table.maxn(contents.month)} 
+    return size.day + size.week + size.month
+end
+function setFrags(cid)
+return db.query("UPDATE `players` SET `frags` = "..getPlayerFrags(cid).." WHERE `id` = "..getPlayerGUID(cid)) 
+end
+]]></config>
+<talkaction words="/rankfrags;!rankfrags" event="buffer"><![CDATA[
+domodlib('rankf_func')
+local max_players,str = 20,""
+str = "--[ RANK FRAGS ]--\n\n"
+local query = db.getResult("SELECT `name`, `frags` FROM `players` WHERE `frags` > 0 AND `id` > 6 AND `group_id` < 2 ORDER BY `frags` DESC, `name` ASC;")
+                if (query:getID() ~= -1) then k = 1 while true do
+str = str .. "\n " .. k .. ". " .. query:getDataString("name") .. " - [" .. query:getDataInt("frags") .. "]"
+k = k + 1
+if not(query:next()) or k > max_players then break end end query:free()end
+return doShowTextDialog(cid,6500, str)
+]]></talkaction>  
+<event type="login" name="RankfLogin" event="script"><![CDATA[
+function onLogin(cid)
+registerCreatureEvent(cid, "RankfKill")
+registerCreatureEvent(cid, "RankfLogin")
+setFrags(cid)
+return true
+end]]></event>      
+<event type="kill" name="RankfKill" event="script"><![CDATA[
+domodlib('rankf_func')
+function onKill(cid, target, lastHit)
+if isPlayer(cid) and isPlayer(target) then
+addEvent(setFrags, 50, cid)
+end
+return true
+end]]></event>
+</mod>

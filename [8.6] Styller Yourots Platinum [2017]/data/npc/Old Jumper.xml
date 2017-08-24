@@ -1,0 +1,9 @@
+<npc name="Old Jumper" script="data/npc/scripts/jumper.lua" floorchange="0" access="5" level="1" maglevel="1">
+	<health now="150" max="150"/>
+	  <look type="129" head="95" body="116" legs="121" feet="115" addons="1" corpse="6080"/>
+	<parameters>
+        <parameter key="module_travel" value="1"/>
+	<parameter key="message_greet" value="Hello |PLAYERNAME|. I am one of the only survivors of the race Jumper. Now I'm helping those who need to go to your {destination} quickly and safely!" />
+        <parameter key="travel_destinations" value="Temple,160,47,7,0"/>
+	</parameters>
+</npc>

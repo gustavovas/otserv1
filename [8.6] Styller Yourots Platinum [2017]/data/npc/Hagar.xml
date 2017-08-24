@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Hagar" script="data/npc/scripts/default.lua" floorchange="0" access="5" level="1" maglevel="1">
+	<health now="150" max="150"/>
+	<look type="266" head="0" body="0" legs="0" feet="0" addons="0"/>
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="message_greet" value="Hello |PLAYERNAME|. Eu posso vender {VIP},a {melhor bota} encontrada no mundo Styller, {Auto Loot}, {Addons Dolls}, e {Vampire Lord Tokens}, que podem ser trocados por exp no NPC Scrutinon, diga {trade}." />
+		<parameter key="shop_sellable" value="victim's heart,5943,10000" />
+		<parameter key="shop_buyable" value="Medal of Honour,5785,6000000;Auto Loot,8976,400000;Vampire Lord Tokens,9020,30000;Best Boots,2641,5500000;Addon Doll,9693,5000000"/>
+	</parameters>
+</npc>

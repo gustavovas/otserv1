@@ -1,0 +1,8 @@
+<?xml version="1.0"?> 
+<npc name="Crowley" script="data/npc/scripts/troca.lua" access="5" lookdir="2" walkinterval="0"> 
+  <health now="200" max="200" /> 
+   <look type="160" head="20" body="100" legs="50" feet="99" corpse="2212"/> 
+  <parameters> 
+    <parameter key="message_greet" value="Oh, hello |PLAYERNAME|. A visitor, how nice!" /> 
+  </parameters> 
+</npc>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Old Jeff" script="data/npc/scripts/default.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100"/>
+	<look type="129" head="95" body="116" legs="121" feet="115" addons="1"/>
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_sellable" value="crossbow,2455,150;bow,2456,130"/>
+		<parameter key="shop_buyable" value="modified crossbow,8849,20000;chain bolter,8850,50000;devileye,8852,400000;iron worker,8853,100000;composite bow,8855,30000;yols bow,8856,40000;solkweaver bow,8857,20000;etheriel elemental bow,8858,100000;assassin star,7368,50"/>
+	</parameters>
+</npc>

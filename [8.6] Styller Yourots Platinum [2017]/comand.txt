@@ -1,0 +1,38 @@
+Styller Yourots Premium:
+Agora conta com War System e War of Emperium!
+
+War System (No Guild-Chat):
+
+/war invite, Guild Enemy Name
+Invita a guild na guerra! Automaticamente sera 10 frags pra acaba a war.
+
+/war invite, Guild Enemy Name, 300
+Invita a guild na guerra com 300 de frag pra acaba a war
+
+/war invite, Guild Enemy Name, 300, 100000
+Invita a guild na guerra com 300 de frag pra acaba a war, e valendo 100k
+OBS: é necessário ter no minimo 100k na conta da guild.
+
+/war accept, Guild Enemy Name
+Aceita o convite de guerra.
+
+/war cancel, Guild Enemy Name
+Cancelar o convite de guerra.
+
+/war reject, Guild Enemy Name
+Rejeita o convite de guerra.
+
+/balance
+Consulta o valor no banco da guild
+
+/balance donate valor
+Deposita um valor na conta da Guild
+
+/balance pick valor
+Retira a quantidade de dinheiro no banco da guild
+
+OBS: Os frags do War-System não pegam red nem black skull.
+
+Join!
+
+Equipe.

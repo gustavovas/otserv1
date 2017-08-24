@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<creaturescripts>
+	<event type="login" name="PlayerLogin" event="script" value="login.lua"/>
+
+	<event type="joinchannel" name="GuildMotd" event="script" value="guildmotd.lua"/>
+	<event type="receivemail" name="Mail" event="script" value="mail.lua"/>
+	<event type="reportbug" name="SaveReportBug" script="reportbug.lua"/>
+	<event type="advance" name="AdvanceSave" event="script" value="advancesave.lua"/>
+
+	<event type="think" name="Idle" event="script" value="idle.lua"/>
+	<event type="death" name="DeathList" event="script" value="death_list.lua"/>
+	<event type="think" name="SkullCheck" event="script" value="skullcheck.lua"/>
+	
+	<!-- Custom systems -->
+	<event type="death" name="PlayerDeath" event="script" value="playerdeath.lua"/>
+	<event type="death" name="Pythius the rottenTeleport" script="pythius the rotten_teleport.lua"/>
+	<event type="death" name="inquisitionPortals" script="inquisitionPortals.lua"/>
+	<event type="login" name="FirstItems" event="script" value="firstitems.lua"/>
+<event type="login" name="MsgNpcShop" event="script" value="npc_shop.lua"/>
+    <event type="kill" name="PlayerKill" script="arenakill.lua"/>
+	<event type="PrepareDeath" name="pvparena" script="pvparena.lua"/>
+	<event type="attack" name="staminafiller" script="staminafiller.lua"/>
+	<event type="login" name="FimVip" event="script" value="vip2.lua"/>
+	<event type="login" name="MultipleExp" event="script" value="MultipleExpLogin.lua"/>	<event type="death" name="incendio" script="incendioMonster.lua"/>
+	<event type="preparedeath" name="ProtectLevel" event="script" value="levelprotection.lua"/>
+	<event type="kill" name="anunciarmorte" event="script" value="anunciar_morte.lua"/>
+	<event type="advance" name="presente" event="script" value="presentes.lua"/>
+<event type="login" name="ExpGuild" event="script" value="ExpGuild.lua"/>
+	<event type="logout" name="ExpGuild_out" event="script" value="ExpGuild_out.lua"/>
+    <event type="look" name="fraglook" event="script" value="fraglook.lua"/>	<event type="death" name="Reward" event="script" value="reward.lua"/><event type="login" name="AntiMbCrash" event="script" value="anti.lua"/>
+<event type="death" name="empe_broken" event="script" value="empe_broken.lua"/>
+	<event type="death" name="pre_empes" event="script" value="pre_empes.lua"/>
+	<event type="statschange" name="empe_dmg" event="script" value="empe_dmg.lua"/>
+	<event type="login" name="reg_vs_guard" event="script" value="vs_guard.lua"/>
+	<event type="statschange" name="vs_guard" event="script" value="vs_guard.lua"/>
+<event type="death" name="BlessDrop" event="script" value="DropBless.lua"/>
+
+<event type="preparedeath" name="Exp_P" event="script" value="vipname.lua"/>
+<event type="login" name="Exp_L" event="script" value="vipname.lua"/>
+<event type="preparedeath" name="BattlefieldP" event="script" value="pdeath.lua"/>
+<event type="combat" name="BattlefieldC" event="script" value="combat.lua"/>
+<event type="death" name="ga1" event="script" value="ga1.lua"/>
+	<event type="death" name="ga2" event="script" value="ga2.lua"/>
+    <event type="death" name="ga3" event="script" value="ga3.lua"/>
+    <event type="death" name="gv1" event="script" value="gv1.lua"/>
+    <event type="death" name="gv2" event="script" value="gv2.lua"/>
+	<event type="death" name="gv3" event="script" value="gv3.lua"/>
+<event type="login" name="offtrain_PlayerLogin" event="script" value="offtrain_login.lua"/>
+	<event type="logout" name="offtrain_PlayerLogout" event="script" value="offtrain_logout.lua"/>
+<event type="advance" name="hmup" event="script" value="hmup.lua"/>
+<event type="advance" name="EvoluirStaff" event="script" value="evoluirwand.lua"/>
+<event type="kill" name="LootEventKill" event="script" value="autoloot.lua"/>
+<event type="login" name="LoginAloot" event="script" value="autoloot.lua"/>
+</creaturescripts>

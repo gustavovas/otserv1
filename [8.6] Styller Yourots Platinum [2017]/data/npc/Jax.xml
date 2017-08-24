@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Jax" script="data/npc/scripts/jax.lua" walkinterval="0" floorchange="0">
+          <health now="150" max="150" />
+          <look type="134" head="57" body="59" legs="40" feet="76" corpse="2212" />
+          <parameters>
+                    <parameter key="message_greet" value="Hello |PLAYERNAME|. Do not want to make an exchange? I have {flame blade} and {solar axe}." />
+                    <parameter key="message_farewell" value="Bye bye!" />
+          </parameters>
+</npc>

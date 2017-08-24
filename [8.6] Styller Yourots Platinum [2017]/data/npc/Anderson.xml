@@ -1,0 +1,9 @@
+<npc name="Anderson" script="data/npc/scripts/vampir.lua" floorchange="0" access="5" level="1" maglevel="1">
+	<health now="150" max="150"/>
+	<look type="134" head="114" body="12" legs="90" feet="115" addons="1" corpse="2212"/>
+	<parameters>
+        <parameter key="module_travel" value="1"/>
+	<parameter key="message_greet" value="Hello |PLAYERNAME|. Wanna you meet my ship rotes? If you say {travel}, I'll can help you!" />
+        <parameter key="travel_destinations" value="Vampire Volcano,543,209,7,100; Dragon Lair,682,225,7,100; Hell Human,931,113,6,100; Magic Cathedral,866,227,7,100; Giants  Lair,639,434,6,100"/>
+	</parameters>
+</npc>

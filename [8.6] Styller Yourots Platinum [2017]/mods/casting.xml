@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mod name="guild-cast" version="1.0" author="elf, slawkens" contact="otland.net" enabled="yes">
+        <config name="guild-cast-config"><![CDATA[
+                exhaust = 10 -- in seconds
+                storage = 3001 -- storage value used to save exhaustion
+                storageColor = 3002 -- storage value used to save previously used message color
+        ]]></config>
+
+        <talkaction words="/guild" event="script"><![CDATA[
+                domodlib('guild-cast-config')
+
+                local config = {
+                        exhaustion = exhaust,
+                        storage = storage,
+                        storageColor = storageColor
+                }
+
+                function onSay(cid, words, param, channel)
+                        if(exhaustion.check(cid, config.storage)) then
+                                doPlayerSendCancel(cid, "You can broadcast message only once per " .. config.exhaustion .. " seconds.")
+                                return true
+                        end
+
+                        if(param == '') then
+                                doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, "You need to type a message to broadcast!")
+                                return true
+                        end
+
+                        local playerGuild = getPlayerGuildId(cid)
+                        if(playerGuild == FALSE) then
+                                doPlayerSendCancel(cid, "Sorry, you're not in a guild.");
+                                return true
+                        end
+
+                        if(getPlayerGuildLevel(cid) < GUILDLEVEL_VICE) then
+                                doPlayerSendCancel(cid, "You have to be at least Vice-Leader to guildcast!")
+                                return true
+                        end
+
+                        local messageType = MESSAGE_STATUS_WARNING
+                        local t = string.explode(param, ";")
+                        if(not t[2]) then
+                                if(getPlayerStorageValue(cid, config.storageColor) ~= -1) then
+                                        messageType = getPlayerStorageValue(cid, config.storageColor)
+                                end
+                        else
+                                if(MESSAGE_TYPES[t[1]] ~= nil) then
+                                        messageType = MESSAGE_TYPES[t[1]]
+                                end
+                                param = t[2]
+                        end
+
+                        if(messageType < MESSAGE_FIRST or messageType > MESSAGE_LAST) then
+                                messageType = MESSAGE_STATUS_WARNING
+                                --setPlayerStorageValue(cid, MESSAGE_STATUS_WARNING, messageType)
+                                --doPlayerSendCancel(cid, "Unknown message type.")
+                                --return true
+                        end
+
+                        local players = getPlayersOnline()
+                        local message = "*Guild* " .. getCreatureName(cid) .. " [" .. getPlayerLevel(cid) .. "]:\n" .. param
+                        local members = 0
+                        for i, tid in ipairs(players) do
+                                if(getPlayerGuildId(tid) == playerGuild) then
+                                        doPlayerSendTextMessage(tid, messageType, message)
+                                        members = members + 1
+                                end
+                        end
+
+                        setPlayerStorageValue(cid, config.storageColor, messageType)
+                        exhaustion.set(cid, config.storage, config.exhaustion)
+                        doPlayerSendCancel(cid, "Message sent to your guild members. (Total: " .. members .. ")")
+                        return true
+                end
+        ]]></talkaction>
+</mod>

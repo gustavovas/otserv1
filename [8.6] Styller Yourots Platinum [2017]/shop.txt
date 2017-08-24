@@ -1,0 +1,2 @@
+<globalevent name="shopguild" interval="300" event="script" value="shopguild.lua"/>
+<globalevent name="shop" interval="30" script="shop.lua"/>

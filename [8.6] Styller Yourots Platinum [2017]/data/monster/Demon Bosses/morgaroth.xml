@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<monster name="Morgaroth" nameDescription="Morgaroth" race="UNDEAD" experience="15000" speed="400" manacost="0">
+   <health now="55000" max="55000"/> 
+  <look type="12" head="0" body="94" legs="79" feet="79" corpse="6068"/> 
+  <targetchange interval="1000" chance="20"/> 
+  <strategy attack="100" defense="0"/> 
+  <flags> 
+    <flag summonable="0"/> 
+    <flag attackable="1"/> 
+    <flag hostile="1"/> 
+    <flag illusionable="0"/> 
+    <flag convinceable="0"/> 
+    <flag pushable="0"/> 
+    <flag canpushitems="1"/> 
+    <flag canpushcreatures="1"/> 
+    <flag staticattack="80"/> 
+    <flag targetdistance="1"/> 
+    <flag runonhealth="2500"/> 
+  </flags> 
+  <attacks> 
+    <attack name="melee" interval="2000" min="-1600" max="-2663"/> 
+    <attack name="fire" interval="3000" chance="35" range="7" radius="7" target="1" min="-1000" max="-1600">
+         <attribute key="shootEffect" value="fire"/> 
+        <attribute key="areaEffect" value="firearea"/> 
+    </attack> 
+    <attack name="fire" interval="3000" chance="25" range="7" radius="7" target="0" min="-500" max="-600">
+         <attribute key="areaEffect" value="firearea"/> 
+    </attack> 
+    <attack name="death" interval="3000" chance="25" range="7" radius="7" target="1" min="-500" max="-800">
+         <attribute key="areaEffect" value="mortarea"/> 
+    </attack> 
+    <attack name="melee" interval="1800" chance="40" range="7" radius="5" target="0" min="-750" max="-1000">
+         <attribute key="areaEffect" value="blackspark"/> 
+    </attack> 
+    <attack name="physical" interval="3000" chance="30" length="8" spread="0" min="0" max="-600">
+         <attribute key="areaEffect" value="mortarea"/> 
+    </attack> 
+    <attack name="physical" interval="2500" chance="20" range="7" radius="5" target="0" min="-200" max="-480">
+         <attribute key="areaEffect" value="greenshimmer"/> 
+    </attack>     
+        <attack name="speed" interval="1000" chance="17" range="7" radius="6" target="0" speedchange="-600" duration="15000">
+             <attribute key="areaEffect" value="rednote"/> 
+        </attack> 
+    <attack name="manadrain" interval="2000" chance="20" radius="14" target="0" min="-200" max="-450">
+         <attribute key="areaEffect" value="redspark"/> 
+    </attack> 
+    <attack name="melee" interval="3000" chance="15" range="7" radius="3" target="0" min="-100" max="-200">
+         <attribute key="areaEffect" value="blueshimmer"/> 
+    </attack> 
+  </attacks> 
+  <defenses armor="55" defense="65"> 
+    <defense name="healing" interval="3000" chance="45" min="300" max="800"> 
+        <attribute key="areaEffect" value="blueshimmer"/> 
+    </defense> 
+    <defense name="speed" interval="4000" chance="80" speedchange="440" duration="6000">
+         <attribute key="areaEffect" value="redshimmer"/> 
+    </defense> 
+  </defenses> 
+  <elements> 
+    <element firePercent="100"/> 
+    <element earthPercent="100"/> 
+    <element energyPercent="1"/> 
+    <element deathPercent="80"/> 
+    <element physicalPercent="1"/> 
+    <element icePercent="-5"/> 
+  </elements> 
+  <immunities> 
+    <immunity paralyze="1"/> 
+    <immunity invisible="1"/> 
+  </immunities> 
+  <summons maxSummons="6"> 
+    <summon name="demon" interval="4000" chance="33"/> 
+  </summons> 
+  <voices interval="5000" chance="30"> 
+    <voice sentence="I AM MORGAROTH, LORD OF THE TRIANGLE... AND YOU ARE LOST!" yell="1"/>
+     <voice sentence="MY SEED IS FEAR AND MY HARVEST ARE YOUR SOULS!" yell="1"/>
+     <voice sentence="THE TRIANGLE OF TERROR WILL RISE!" yell="1"/> 
+    <voice sentence="ZATHROTH! LOOK AT THE DESTRUCTION I AM CAUSING IN YOUR NAME!" yell="1"/>
+   </voices> 
+  <loot> 
+    <item id="2148" chance="70000" countmax="100"/> 
+    <item id="2148" chance="50000" countmax="90"/> 
+    <item id="2148" chance="13000" countmax="100"/> 
+    <item id="2151" chance="10000" countmax="79"/> 
+    <item id="6500" chance="1000" countmax="5"/> 
+    <item id="2149" chance="6000" countmax="7"/> 
+    <item id="2145" chance="6000" countmax="5"/> 
+    <item id="7431" chance="800"/> 
+    <item id="2462" chance="9000"/> 
+    <item id="2387" chance="8000"/> 
+    <item id="2167" chance="700"/> 
+    <item id="2162" chance="8000"/> 
+    <item id="2472" chance="700"/> 
+    <item id="7899" chance="600"/> 
+    <item id="2514" chance="800"/> 
+    <item id="2164" chance="7000"/> 
+    <item id="2178" chance="800"/> 
+    <item id="2171" chance="1000"/> 
+    <item id="1982" chance="8000"/> 
+    <item id="2214" chance="1000"/> 
+    <item id="2123" chance="8000"/> 
+    <item id="2170" chance="8000"/> 
+    <item id="2402" chance="700"/> 
+    <item id="2436" chance="6000"/> 
+    <item id="2165" chance="600"/> 
+    <item id="2197" chance="600"/> 
+    <item id="2174" chance="6000"/> 
+    <item id="2377" chance="160"/> 
+    <item id="8473" chance="9000"/> 
+    <item id="8850" chance="810"/> 
+    <item id="8865" chance="7000"/> 
+    <item id="8881" chance="900"/> 
+    <item id="2522" chance="9000"/> 
+    <item id="8886" chance="7000"/> 
+    <item id="5943" chance="600"/> 
+    <item id="8928" chance="600"/> 
+    <item id="1987" chance="100000"> 
+        <inside> 
+    <item id="2432" chance="6000"/> 
+    <item id="2393" chance="8000"/> 
+    <item id="2033" chance="5000"/> 
+    <item id="2470" chance="7000"/> 
+    <item id="7591" chance="6000"/> 
+    <item id="7590" chance="6000"/> 
+    <item id="8472" chance="7000"/> 
+    <item id="2155" chance="900"/> 
+    <item id="2396" chance="700"/> 
+    <item id="2177" chance="900"/> 
+    <item id="2143" chance="9000" countmax="11"/> 
+    <item id="2146" chance="9000" countmax="9"/> 
+    <item id="2144" chance="900" countmax="13"/> 
+    <item id="9971" chance="9000" countmax="2"/> 
+    <item id="5954" chance="7000" countmax="2"/> 
+    <item id="6529" chance="6000" countmax="100"/> 
+    <item id="2142" chance="700"/> 
+    <item id="2158" chance="7000"/> 
+    <item id="2195" chance="9000"/> 
+    <item id="2192" chance="8000"/> 
+    <item id="2124" chance="7000"/> 
+    <item id="6300" chance="6000"/> 
+    <item id="2520" chance="9000"/> 
+    <item id="2185" chance="8000"/> 
+    <item id="2186" chance="700"/> 
+    <item id="7421" chance="8000"/> 
+    <item id="2176" chance="5000"/> 
+    <item id="8851" chance="5000"/> 
+    <item id="2112" chance="3000"/> 
+    <item id="8852" chance="200"/> 
+    <item id="8853" chance="5000"/> 
+    <item id="8929" chance="200"/> 
+    <item id="2421" chance="3000"/> 
+        </inside> 
+    </item> 
+  </loot> 
+</monster>

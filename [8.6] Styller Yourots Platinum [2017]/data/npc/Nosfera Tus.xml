@@ -1,0 +1,9 @@
+<npc name="Nosfera Tus" script="data/npc/scripts/default.lua" access="5" lookdir="1">
+    <health now="1000" max="1000"/>
+<look type="237" corpse="6364"/>
+<parameters>
+<parameter key="module_shop" value="1"/>
+<parameter key="shop_sellable" value=""/>
+<parameter key="shop_buyable" value="Divine Frag Remover,11098,200000;Mysterious Pet,11191,100000"/>
+</parameters>
+</npc>

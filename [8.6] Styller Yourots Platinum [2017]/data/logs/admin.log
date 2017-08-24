@@ -1,0 +1,23 @@
+[25/6/2014 0:6:46] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: O endereço solicitado não é válido no contexto
+[1/7/2014 20:10:34] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[1/7/2014 20:26:32] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[1/7/2014 20:28:35] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[2/7/2014 18:38:23] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[2/7/2014 18:43:43] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[2/7/2014 18:49:23] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[2/7/2014 18:51:52] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[3/7/2014 4:25:53] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[3/7/2014 4:28:20] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[3/7/2014 4:30:48] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[3/7/2014 4:32:57] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[7/7/2014 4:12:28] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[7/7/2014 14:40:13] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[8/7/2014 1:47:31] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: Address already in use
+[27/7/2014 2:49:27] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: O endereço solicitado não é válido no contexto
+[27/7/2014 2:55:31] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: O endereço solicitado não é válido no contexto
+[27/7/2014 3:0:32] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: O endereço solicitado não é válido no contexto
+[27/7/2014 3:20:2] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: O endereço solicitado não é válido no contexto
+[27/7/2014 3:34:17] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: O endereço solicitado não é válido no contexto
+[28/8/2014 18:46:51] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: O endereço solicitado não é válido no contexto
+[28/8/2014 18:49:21] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: O endereço solicitado não é válido no contexto
+[28/8/2014 18:50:14] (Error - void ServicePort::open(IPAddressList, uint16_t)) NETWORK: O endereço solicitado não é válido no contexto

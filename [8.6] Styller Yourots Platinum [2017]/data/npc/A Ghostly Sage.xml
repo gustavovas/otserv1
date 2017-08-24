@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="A Ghostly Sage" script="data/npc/scripts/pits.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100"/>
+	<look type="130" head="9" body="85" legs="9" feet="0" addons="3"/>
+	<parameters>
+  <parameter key="message_greet" value="Hello! Do you want to {permision} in The Pits of Inferno? "/>
+    </parameters></npc>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Scrutinon" script="data/npc/scripts/expbuy.lua" walkinterval="0" floorchange="0">
+<health now="100" max="100"/>
+<look typeex="7825" head="7825" body="0" legs="0" feet="0" addons="0"/>
+<parameters>
+  <parameter key="message_greet" value="Grande |PLAYERNAME|! Eu posso {recuperar} a exp perdida em sua morte." />
+  <parameter key="message_decline" value="Adios." />
+</parameters>
+</npc>

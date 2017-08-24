@@ -1,0 +1,20 @@
+		Olá galera!
+	Este documento serve para explicar a todos que 
+o sistema de addons está configurado por itens, 
+e que existe todos eles no 
+mapa, inclusive um NPC que vende alguns.
+	Caso queiram usar o modo simples, (first addon e second addon),
+basta ir até a pasta NPC, e abrir o arquivo Varkhal.xml
+     	Neste aquivo, mude nesta parte:
+
+  script="data/npc/scripts/addon.lua"
+
+       para
+
+  script="data/npc/scripts/addons.lua"
+
+Depois disso é só reiniciar o server caso esteja ligado, e pronto.
+
+Obrigado!
+
+LeozeraRox.

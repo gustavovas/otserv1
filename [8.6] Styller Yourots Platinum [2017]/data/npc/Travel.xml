@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Travel" script="default.lua" walkinterval="2000" floorchange="0">
+	<health now="185" max="185"/>
+	<look type="128" addons="0" head="0" body="0" legs="0" feet="0" corpse="2317"/>
+	<parameters>
+		<parameter key="module_travel" value="1"/>
+		<parameter key="message_greet" value="Welcome!"/>
+		<parameter key="message_farewall" value="Bye..."/>
+		<parameter key="message_walkaway" value="How rude!"/>
+		<parameter key="travel_destinations" value="carlin,100,100,7,175;sdasda,123,123,123,175;"/>
+	</parameters>
+</npc>

@@ -1,0 +1,9 @@
+<npc name="Capitain Charles" script="data/npc/scripts/bloodb.lua" floorchange="0" access="5" level="1" maglevel="1">
+	<health now="150" max="150"/>
+	<look type="134" head="114" body="13" legs="90" feet="115" addons="3" corpse="2212"/>
+	<parameters>
+        <parameter key="module_travel" value="1"/>
+	<parameter key="message_greet" value="Hello |PLAYERNAME|. Wanna you meet my ship rotes? If you say {travel}, I'll can help you!" />
+        <parameter key="travel_destinations" value="Demon Land,285,220,7,100; Apocalypse Room,321,66,11,100; Hydra Land,174,173,7,100; Frost Land,198,440,7,100; Mistery Bay,350,471,4,100"/>
+	</parameters>
+</npc>

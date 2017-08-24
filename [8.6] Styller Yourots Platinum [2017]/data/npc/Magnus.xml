@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Magnus" script="data/npc/scripts/default.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100"/>
+	<look type="325" head="114" body="94" legs="114" feet="0" addons="1"/>
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_sellable" value=""/>
+		<parameter key="shop_buyable" value="yalahari armor,9776,600000;yalahari leg piece,9777,300000;yalahari mask,9778,200000"/>
+	</parameters>
+</npc>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Alice" script="data/npc/scripts/addonera.lua" walkinterval="2000" floorchange="0">
+	<health now="150" max="150"/>
+	<look type="142" head="114" body="0" legs="95" feet="114" corpse="2212" addons="3"/>
+		<parameters>
+		<parameter key="message_greet" value="Hello |PLAYERNAME|. I sell some addons itens, just ask for {trade}."/>
+ 
+	</parameters>
+</npc>

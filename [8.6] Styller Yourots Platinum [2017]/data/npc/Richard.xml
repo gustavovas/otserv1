@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Richard" script="data/npc/scripts/fera.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100"/>
+	<look type="128" head="119" body="0" legs="114" feet="0" addons="3"/>
+	<parameters>
+        <parameter key="module_travel" value="1"/>
+	<parameter key="message_greet" value="Hello |PLAYERNAME|. If you say {travel}, I'll can help you!" />
+        <parameter key="travel_destinations" value="Nargor,152,736,6,200"/>
+	</parameters>
+</npc>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mod name="Reward Time System" version="1.0" author="vodkart" contact="none" enabled="yes"> 
+<config name="rewardtime_lib"><![CDATA[
+config_won_hours = {
+	need_hour = 5,
+	block_mc = {true, 2}, -- se bloqueia MC de ganhar premios, true e a quantidade maxima de IP permitida
+	storages = {789140, 789141, 789142, 789143} -- caso precise adicionar mais storages p/ fzr alterações
+}
+rewards = {items = {2160,10}, points = 0, p_days = 0}
+function getAmountSameIp(cid)
+	local t = {}
+	for _, pid in pairs(getPlayersOnline()) do
+		if getPlayerIp(cid) == getPlayerIp(pid) then
+			t[#t+1] = pid
+		end
+	end
+	return t
+end
+function getPlayerHours(cid)
+	return timeString((os.time() - getPlayerStorageValue(cid, config_won_hours.storages[1])))[2]
+end
+function getPremiumPoints(cid)
+	local query = db.getResult("SELECT `premium_points` FROM `accounts` WHERE `id` = "..getPlayerAccountId(cid))
+	return query:getDataInt("premium_points") <= 0 and 0 or query:getDataInt("premium_points")
+end
+function setPremiumPoints(cid, amount)
+	return db.query("UPDATE `accounts` SET `premium_points` = "..amount.." WHERE `id` = "..getPlayerAccountId(cid))
+end
+function startRewardTime(cid)
+	if getPlayerStorageValue(cid, config_won_hours.storages[4]) == -1 then -- when die
+		if getPlayerStorageValue(cid, config_won_hours.storages[2]) <= 0 then -- first login
+			setPlayerStorageValue(cid, config_won_hours.storages[1], os.time())
+			setPlayerStorageValue(cid, config_won_hours.storages[2], 1)
+		else
+			setPlayerStorageValue(cid, config_won_hours.storages[1], getPlayerStorageValue(cid, config_won_hours.storages[1]) + os.time())
+		end
+	else
+		
+		setPlayerStorageValue(cid, config_won_hours.storages[1], getPlayerStorageValue(cid, config_won_hours.storages[4]) + os.time())
+		setPlayerStorageValue(cid, config_won_hours.storages[4], -1)
+	end
+end
+function timeString(timeDiff)
+	local dateFormat = {
+		{"day", timeDiff / 60 / 60 / 24},
+		{"hour", timeDiff / 60 / 60 % 24},
+		{"minute", timeDiff / 60 % 60},
+		{"second", timeDiff % 60}
+	}
+	local out, h = {}, math.floor(timeDiff/60/60%24)
+	for k, t in ipairs(dateFormat) do
+		local v = math.floor(t[2])
+		if(v > 0) then
+			table.insert(out, (k < #dateFormat and (#out > 0 and ', ' or '') or ' and ') .. v .. ' ' .. t[1] .. (v ~= 1 and 's' or ''))
+		end
+	end
+	local ret = table.concat(out)
+	if ret:len() < 16 and ret:find("second") then
+		local a, b = ret:find(" and ")
+		ret = ret:sub(b+1)
+	end
+	return {ret, h > 0 and h or 0}
+end
+function dorewardHours(cid)
+	local rst = ""
+	if #rewards.items > 0 then doPlayerAddItem(cid, rewards.items[1], rewards.items[2]) rst = rst.."".. (rst == "" and "" or ", ") .." "..rewards.items[2].." "..getItemNameById(rewards.items[1]) end
+	if rewards.p_days > 0 then doPlayerAddPremiumDays(cid, rewards.p_days) rst = rst.."".. (rst == "" and "" or ", ") .." "..rewards.p_days.." premium days" end
+	if rewards.points > 0 then setPremiumPoints(cid, getPremiumPoints(cid)+rewards.points) rst = rst.."".. (rst == "" and "" or ", ") .." "..rewards.points.." premium points." end
+	doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_ORANGE,"[Rewards Time System] Obrigado por ficar online durante "..config_won_hours.need_hour.." hours Recompensas: "..(rst == "" and "nenhuma" or rst))
+	setPlayerStorageValue(cid, config_won_hours.storages[1], os.time())
+end
+]]></config>
+<globalevent name="Salve-PlayerTime" interval="60" event="script"><![CDATA[
+domodlib('rewardtime_lib')
+function onThink(interval, lastExecution, thinkInterval)
+	if #getPlayersOnline() > 0 then
+		for _, cid in ipairs(getPlayersOnline()) do
+			if  getPlayerStorageValue(cid, config_won_hours.storages[3]) <= 0 and getPlayerHours(cid) >= config_won_hours.need_hour then -- check hours
+				dorewardHours(cid)
+			end
+		end
+	end
+	return true
+end]]></globalevent>
+<talkaction words="/mytime;!mytime" event="buffer"><![CDATA[
+domodlib('rewardtime_lib')
+if getPlayerStorageValue(cid, config_won_hours.storages[3]) > 0 then
+	doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, "Your Reward Time is blocked because you are using MC.") return true
+end 
+local count = (os.time() - getPlayerStorageValue(cid, config_won_hours.storages[1]))
+local _ = -(count-config_won_hours.need_hour*3600)
+return doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, getPlayerHours(cid) >= config_won_hours.need_hour and "Wait a few moments to receive the reward" or "[Reward Time System] Remaining time to receive a reward: "..timeString(_)[1])
+]]></talkaction>
+<event type="login" name="RewardTimeLogin" event="script"><![CDATA[
+domodlib('rewardtime_lib')
+function onLogin(cid)
+	registerCreatureEvent(cid, "RewardTimeDeath")
+	if config_won_hours.block_mc[1] and #getAmountSameIp(cid) <= config_won_hours.block_mc[2] then -- block mc time
+		setPlayerStorageValue(cid, config_won_hours.storages[3], 0)
+		startRewardTime(cid)
+	else
+		doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_ORANGE,"[Reward Time System] Your Reward Time is blocked because you are using MC.")
+		setPlayerStorageValue(cid, config_won_hours.storages[3], 1)
+	end
+	return true
+end]]></event>	 
+<event type="logout" name="RewardTimeLogout" event="script"><![CDATA[
+domodlib('rewardtime_lib')
+function onLogout(cid)
+	if getPlayerStorageValue(cid, config_won_hours.storages[3]) > 0 then -- if not is MC 
+		setPlayerStorageValue(cid, config_won_hours.storages[1], getPlayerStorageValue(cid, config_won_hours.storages[1]))
+	elseif getPlayerStorageValue(cid, config_won_hours.storages[3]) <= 0 then -- if not is MC
+		setPlayerStorageValue(cid, config_won_hours.storages[1], getPlayerStorageValue(cid, config_won_hours.storages[1]) - os.time()) -- save time
+		if config_won_hours.block_mc[1] and #getAmountSameIp(cid) > config_won_hours.block_mc[2] then -- block mc time
+			for _, pid in ipairs(getAmountSameIp(cid)) do
+				if getPlayerStorageValue(pid, config_won_hours.storages[3]) > 0 then -- when blocked
+					startRewardTime(pid)
+					doPlayerSendTextMessage(pid, MESSAGE_STATUS_CONSOLE_ORANGE,"[Reward Time System] Your time has begun to be counted, avoid MC.")
+					setPlayerStorageValue(pid, config_won_hours.storages[3], 0)
+					break
+				end
+			end 
+		end
+	end
+	return true
+end]]></event>
+<event type="preparedeath" name="RewardTimeDeath" event="script"><![CDATA[
+domodlib('rewardtime_lib')
+function onPrepareDeath(cid, corpse)
+	if isPlayer(cid) then
+		if getPlayerStorageValue(cid, config_won_hours.storages[3]) <= 0 then -- when blocked
+			setPlayerStorageValue(cid, config_won_hours.storages[1], getPlayerStorageValue(cid, config_won_hours.storages[1]) - os.time())
+			setPlayerStorageValue(cid, config_won_hours.storages[4], getPlayerStorageValue(cid, config_won_hours.storages[1])) -- when die no bug hours
+			setPlayerStorageValue(cid, config_won_hours.storages[1], getPlayerStorageValue(cid, config_won_hours.storages[1]) + os.time())
+			if config_won_hours.block_mc[1] and #getAmountSameIp(cid) > config_won_hours.block_mc[2] then -- block mc time
+				for _, pid in ipairs(getAmountSameIp(cid)) do
+					if getPlayerStorageValue(pid, config_won_hours.storages[3]) > 0 then -- when blocked
+						startRewardTime(pid)
+						doPlayerSendTextMessage(pid, MESSAGE_STATUS_CONSOLE_ORANGE,"[Reward Time System] Your time has begun to be counted, avoid MC.")
+						setPlayerStorageValue(pid, config_won_hours.storages[3], 0)
+						break
+					end
+				end 
+			end
+		end
+	end
+	return true
+end]]></event>
+</mod>

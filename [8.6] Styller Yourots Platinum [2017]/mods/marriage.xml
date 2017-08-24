@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<mod name="MarriageSystem" version="1.0" author="Mulizeu" contact="xtibia.com" enabled="yes">  
+<config name="marry_func"><![CDATA[
+marry_config = {
+Premium = false,
+OnlyDifferentSex = false,
+Marry_Price = 300000,
+Divorce_Price = 100000,
+Level = 50,
+MaxSqm = 7 -- to up system and win bonus
+}
+Marry_stage = {
+[0] = {exp = 350000, marry_percent = 50, player_experience = 0},
+[1] = {exp = 700000, marry_percent = 45, player_experience = 2},
+[2] = {exp = 1050000, marry_percent = 40, player_experience = 4},
+[3] = {exp = 1400000, marry_percent = 35, player_experience = 6},
+[4] = {exp = 1750000, marry_percent = 30, player_experience = 8},
+[5] = {exp = 2100000, marry_percent = 25, player_experience = 10},
+[6] = {exp = 2450000, marry_percent = 20, player_experience = 12},
+[7] = {exp = 2800000, marry_percent = 15, player_experience = 14},
+[8] = {exp = 3150000, marry_percent = 10, player_experience = 16},
+[9] = {exp = 3500000, marry_percent = 5, player_experience = 18},
+[10] = {exp = 0, marry_percent = 0, player_experience = 20}
+}
+marriage_tabble = {exp = 350250,level = 340200}
+function isMarried(cid)
+local m = db.getResult("SELECT `player_id` FROM `marriage_system` WHERE `player_id` = '"..getPlayerGUID(cid).."';")
+if(m:getID() == -1) then
+local e = db.getResult("SELECT `partner` FROM `marriage_system` WHERE `partner` = '"..getPlayerGUID(cid).."';")
+if(e:getID() == -1) then
+return false
+end
+end
+return true
+end
+function isPatner(cid)
+local p = db.getResult("SELECT `partner` FROM `marriage_system` WHERE `player_id` = '"..getPlayerGUID(cid).."';")
+if(p:getID() == -1) then
+return true
+end
+return false
+end
+function isMarryOnline(cid)
+if not getPlayerByNameWildcard(getPartner(cid)) then
+return false
+end
+return true
+end
+function getPartner(cid)
+if isPatner(cid) then
+a = db.getResult("SELECT `player_id` FROM `marriage_system` WHERE `partner` = '"..getPlayerGUID(cid).."';")
+b = "player_id"
+else
+a = db.getResult("SELECT `partner` FROM `marriage_system` WHERE `player_id` = '"..getPlayerGUID(cid).."';")
+b = "partner"
+end
+local query = a
+return getPlayerNameByGUID(query:getDataString(b))
+end
+function doMarry(cid, patner)
+return db.query("INSERT INTO `marriage_system` (`player_id`, `partner`, `marriage_date`) VALUES ('".. getPlayerGUID(cid) .."', '"..patner.."', '".. os.time() .."');")
+end
+function doDivorcePlayer(cid)
+if isPatner(cid) then
+pid,player = getPlayerGUIDByName(getPartner(cid)),getPlayerByNameWildcard(getPartner(cid))
+else
+pid,player = getPlayerGUID(cid),cid
+end
+if(not player or isPlayerGhost(player)) then
+db.query("DELETE FROM `player_storage` WHERE `player_id` = " .. pid .. " AND `key` = " .. marriage_tabble.level .. ";")
+db.query("DELETE FROM `player_storage` WHERE `player_id` = " .. pid .. " AND `key` = " .. marriage_tabble.exp .. ";")
+else
+setPlayerStorageValue(player, marriage_tabble.level,0)
+setPlayerStorageValue(player, marriage_tabble.exp,0)
+end
+return db.query("DELETE FROM `marriage_system` WHERE `player_id` = '" .. pid .. "';")
+end
+function getMarryStatus(cid, status)
+player = isPatner(cid) and getPlayerByNameWildcard(getPartner(cid)) or cid
+return getPlayerStorageValue(player,status == "level" and marriage_tabble.level or marriage_tabble.exp) < 0 and 0 or getPlayerStorageValue(player, status == "level" and marriage_tabble.level or marriage_tabble.exp)
+end
+function setMarryStatus(cid, status, amount)
+player = isPatner(cid) and getPlayerByNameWildcard(getPartner(cid)) or cid
+return setPlayerStorageValue(player, status == "level" and marriage_tabble.level or marriage_tabble.exp, getMarryStatus(player, status)+amount)
+end
+function getMarryExp(cid)
+return getMarryStatus(cid, "exp")
+end
+function addMarryExp(cid, amount)
+return setMarryStatus(cid, "exp", amount)
+end
+function addMarryLevel(cid, amount)
+return setMarryStatus(cid, "level", amount)
+end
+function getMarryLevel(cid)
+return getMarryStatus(cid, "level")
+end
+function getMarryDate(cid)
+local player = isPatner(cid) and getPlayerGUIDByName(getPartner(cid)) or getPlayerGUID(cid)
+local date = db.getResult("SELECT `marriage_date` FROM `marriage_system` WHERE `player_id` = '"..player.."';")
+return os.date("%d %B %Y %X ", date:getDataInt("marriage_date"))
+end
+]]></config>
+<talkaction words="/marriage;!marriage;!divorce;/divorce" event="buffer"><![CDATA[
+domodlib('marry_func')
+config = {TimeAccept = 30, sqm = 3, storage1 = 873438, storage2 = 532579}
+if words =="!marriage" or words =="/marriage" then
+param = string.lower(param)
+if (param == "") then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE,"invalid command, for more information enter !marriage info")
+elseif(param == "info") then
+msg = "Marriage Info".."\n\nLevel Minimum: "..marry_config.Level.."\nMarriage Cost: "..marry_config.Marry_Price.."\nDivorce Cost: "..marry_config.Divorce_Price.."\n\nMarried Players have a bonus exp as a wedding gift given by the union".."\n\nThis bonus is only given if the married players are nearby.\n\nTo marry use the command:\n!marriage NAME"
+doShowTextDialog(cid,2160,msg)
+elseif(param == "status") then
+if isMarried(cid) then
+msg = "Marriage Status".."\n\nMarried with: ["..getPartner(cid).."]\n\nMarry Experience: "..(getMarryLevel(cid) ~= 10 and "["..getMarryExp(cid).."/"..Marry_stage[getMarryLevel(cid)].exp.."]" or "[Max]").."\n\nMarry Level: "..(getMarryLevel(cid) ~= 10 and "["..getMarryLevel(cid).."]" or "[Max]").."\n"
+else
+msg = "you are not married"
+end
+doPlayerPopupFYI(cid, msg)
+elseif (param =="date") then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE,""..(isMarried(cid) and "The date of his marriage with "..getPartner(cid).." was: "..getMarryDate(cid).."." or "you are not married.").."")
+elseif (param =="accept") then
+player = getPlayerStorageValue(cid, config.storage2)
+if getPlayerStorageValue(cid, config.storage1) >= os.time() then
+if not isMarried(cid) then
+if getDistanceBetween(getCreaturePosition(cid), getCreaturePosition(player)) <= config.sqm then
+doMarry(cid, getPlayerGUID(player))
+doPlayerSendTextMessage(player, MESSAGE_STATUS_CONSOLE_ORANGE,"Congratulations! "..getCreatureName(cid).." accepted his marriage proposal.")
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_ORANGE,"Congratulations! you married with "..getCreatureName(player))
+doSendMagicEffect(getCreaturePosition(cid), 35)
+doSendMagicEffect(getCreaturePosition(player), 35)
+else
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, "you're far away from her suitor.")
+end
+else
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE,"you are not married.")
+end
+else
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE,"you do not received none wedding invitation.")
+end
+elseif (param =="reject") then
+if getPlayerStorageValue(cid, config.storage1) >= os.time() then
+if not isMarried(cid) then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_ORANGE,"You just refuse the wedding invitation from player "..getCreatureName(getPlayerStorageValue(cid, config.storage2)))
+doPlayerSendTextMessage(getPlayerStorageValue(cid, config.storage2), MESSAGE_STATUS_CONSOLE_ORANGE,getCreatureName(cid).." rejected his marriage proposal.")
+else
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE,"you are already married.")
+end
+else
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE,"you do not received none wedding invitation.")
+end
+else
+local player = getPlayerByNameWildcard(param)
+if(not player)then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, param.." is offline or does not exist.") return true
+elseif isMarried(cid) or isMarried(player) then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, ""..(isMarried(cid) and "you" or "he").." already is wedded.") return true
+elseif marry_config.Premium == true then
+if not isPremium(cid) or not isPremium(Player) then doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, "players must be premium") end
+return true  
+elseif getPlayerLevel(cid) < marry_config.Level or getPlayerLevel(player) < marry_config.Level then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, "players must to be level "..marry_config.Level) return true
+elseif getPlayerStorageValue(player, config.storage1) >= os.time() then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, param.." already have a wedding invitation, wait.") return true
+elseif getDistanceBetween(getCreaturePosition(cid), getCreaturePosition(player)) > config.sqm then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, "you are far away from each other to get married.") return true
+elseif marry_config.OnlyDifferentSex and getPlayerSex(cid) == getPlayerSex(player) then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, "you can only marry the opposite sex") return true
+elseif not doPlayerRemoveMoney(cid, marry_config.Marry_Price) then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE, "Sorry, but you do not have "..marry_config.Marry_Price.." gp(s) to ask "..param.." in marriage.") return true
+end
+setPlayerStorageValue(player, config.storage1,os.time()+config.TimeAccept)
+setPlayerStorageValue(player, config.storage2, cid)
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE,"you asked "..param.." in marriage, wait a answer!")
+doPlayerSendTextMessage(player, MESSAGE_STATUS_CONSOLE_BLUE,getCreatureName(cid).." asked you in marriage, enter !marriage accept or !marriage reject")
+end
+elseif words =="!divorce" or words =="/divorce" then
+if isMarried(cid) then
+if doPlayerRemoveMoney(cid, marry_config.Divorce_Price) then
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_ORANGE,"Congratulations, you end up divorcing from player: "..getPartner(cid))
+doDivorcePlayer(cid)
+else
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE,"Sorry, you do not have "..marry_config.Divorce_Price.." gp(s).")
+end
+else
+doPlayerSendTextMessage(cid, MESSAGE_STATUS_CONSOLE_BLUE,"you are not married.")
+end
+end
+return true
+]]></talkaction>
+<event type="login" name="MarryRegister" event="script"><![CDATA[
+function onLogin(cid)
+registerCreatureEvent(cid, "ExpMarry")
+registerCreatureEvent(cid, "MarryStats")
+registerCreatureEvent(cid, "MarryNoAttack")
+return true
+end
+]]></event>
+<event type="combat" name="MarryNoAttack" event="script"><![CDATA[
+domodlib('marry_func')
+if isPlayer(cid) and isPlayer(target) and isMarried(cid) and isMarried(target) then
+if (getCreatureName(target) ==  getPartner(cid))then
+doPlayerSendCancel(cid, "You may not attack this player.")
+return false
+end
+end
+return true
+]]></event>
+<event type="kill" name="ExpMarry" event="script"><![CDATA[
+domodlib('marry_func')
+function onKill(cid, target, lastHit)
+if isMonster(target) then
+conta = getMonsterInfo(string.lower(getCreatureName(target))).experience
+if isMarried(cid) and isMarryOnline(cid) and getDistanceBetween(getCreaturePosition(cid), getCreaturePosition(getPlayerByNameWildcard(getPartner(cid)))) <= marry_config.MaxSqm then
+if getMarryLevel(cid) ~= 10 then
+mexp = math.ceil((conta*Marry_stage[getMarryLevel(cid)].marry_percent)/100)
+addMarryExp(cid, mexp)
+if isMarryOnline(cid) then
+doPlayerSendTextMessage(getPlayerByNameWildcard(getPartner(cid)),MESSAGE_STATUS_SMALL,"Marry exp + "..mexp)
+end
+doPlayerSendTextMessage(cid,MESSAGE_STATUS_SMALL,"Marry exp + "..mexp)
+if getMarryExp(cid) >= Marry_stage[getMarryLevel(cid)].exp then
+addMarryLevel(cid, 1)
+if isMarryOnline(cid) then
+doPlayerSendTextMessage(getPlayerByNameWildcard(getPartner(cid)), MESSAGE_STATUS_CONSOLE_RED,"[Marriage System] Level Up! [Nv: "..getMarryLevel(cid).."].")
+doSendMagicEffect(getCreaturePosition(getPlayerByNameWildcard(getPartner(cid))), 35)
+end
+doPlayerSendTextMessage(cid,MESSAGE_STATUS_CONSOLE_RED,"[Marriage System] Level Up! [Nv: "..getMarryLevel(cid).."].")
+doSendMagicEffect(getCreaturePosition(cid), 35)
+end
+end
+local exp = getExperienceStage(getPlayerLevel(cid), getVocationInfo(getPlayerVocation(cid)).experienceMultiplier)
+local count = math.ceil(((getMonsterInfo(string.lower(getCreatureName(target))).experience*exp)*Marry_stage[getMarryLevel(cid)].player_experience)/100)
+doPlayerAddExperience(cid, count)
+end
+end
+return true
+end]]></event>
+<event type="statschange" name="MarryStats" event="script"><![CDATA[
+domodlib('marry_func')
+Damage_percent = 50 -- metade n mexa
+Chance = 25 -- chance de conseguir o reflect ou couple damage
+if isMonster(attacker) and type == STATSCHANGE_HEALTHLOSS then
+if isMarried(cid) and isMarryOnline(cid) and getPlayerByNameWildcard(getPartner(cid)) and getDistanceBetween(getCreaturePosition(cid), getCreaturePosition(getPlayerByNameWildcard(getPartner(cid)))) <= marry_config.MaxSqm then
+if (Chance > math.random(1, 100)) then
+damage = math.ceil((value*Damage_percent)/100)
+if (50 > math.random(1, 100)) then
+doTargetCombatHealth(cid, attacker, COMBAT_PHYSICALDAMAGE, -damage, -damage, CONST_ME_HOLYDAMAGE)
+doSendAnimatedText(getCreaturePosition(cid), "REFLECT!", 140)  
+else
+doSendMagicEffect(getCreaturePosition(cid), CONST_ME_HEARTS)
+doSendAnimatedText(getCreaturePosition(cid), "Love!", 200)
+doCreatureAddHealth(cid, damage)
+if isMarryOnline(cid) then
+doSendMagicEffect(getCreaturePosition(getPlayerByNameWildcard(getPartner(cid))), CONST_ME_HEARTS)
+doSendAnimatedText(getCreaturePosition(getPlayerByNameWildcard(getPartner(cid))), "Love!", 200)  
+doCreatureAddHealth(getPlayerByNameWildcard(getPartner(cid)), -damage)
+end
+end
+end
+end
+end
+return true
+]]></event>
+</mod>

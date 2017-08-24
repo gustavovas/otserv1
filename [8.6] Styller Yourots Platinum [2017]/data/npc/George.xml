@@ -1,0 +1,9 @@
+<npc name="George" script="data/npc/scripts/little_boat.lua" floorchange="0" access="5" level="1" maglevel="1">
+	<health now="150" max="150"/>
+	<look type="146" head="93" body="93" legs="57" feet="97" addons="3" corpse="2212"/>
+	<parameters>
+        <parameter key="module_travel" value="1"/>
+	<parameter key="message_greet" value="Hello |PLAYERNAME|. I am one of the Desert Travelers, and I use my magic carpet to take the citizens at various {places}!" />
+        <parameter key="travel_destinations" value="Seal of Teleports,174,50,8,0"/>
+	</parameters>
+</npc>

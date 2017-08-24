@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<globalevents>
+	<globalevent name="save" interval="3000000" event="script" value="save.lua"/>
+	<globalevent name="clean" interval="7200000" event="script" value="clean.lua"/>
+<globalevent name="lotery" interval="3600000" event="script" value="incendio.lua"/>
+<globalevent name="Info" interval="1400000" event="script" value="info.lua"/>	<globalevent name="serverstart" type="start" event="script" value="start.lua"/>
+<globalevent name="record" type="record" event="script" value="record.lua"/>
+<globalevent name="ItemsNpcShopt" interval="3600000" event="script" value="npc_shop.lua"/>
+
+<globalevent name="WoE" interval="3000000" event="script" value="woe.lua"/>
+
+<globalevent name="Info2" interval="1000000" event="script" value="info2.lua"/>
+<globalevent name="offtrain_add_minutes" interval="60000" event="script" value="offtrain_addMinutes.lua"/>	<globalevent name="start_woe" interval="3000000" event="script" value="start_woe.lua"/>
+		<globalevent name="Guardias" interval="1000" event="script" value="guardias.lua"/>	<!-- <globalevent name="timer_example" time="21:35" event="script" value="my_script.lua"/> -->
+	
+	</globalevents>

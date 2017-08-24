@@ -1,0 +1,22 @@
+[15/12/2009 14:12:32] /vip add 1 revange
+[15/12/2009 14:13:16] /attr group 6
+[15/12/2009 14:13:18] /r
+[15/12/2009 14:15:46] /a 5
+[15/12/2009 14:16:06] /addskill revange, level 50
+[15/12/2009 14:16:09] /addskill revange, level, 50
+[15/12/2009 14:24:45] /t
+[15/12/2009 14:25:21] /bc a galera que joga no revange... isso é apenas um teste server... nao teve reset e vai voltar tudo ao normal mais tarde
+[15/12/2009 14:26:48] /unban Elwin Assin
+[15/12/2009 14:31:30] /i 2160
+[15/12/2009 14:36:23] /goto Revange
+[15/12/2009 14:36:29] /goto leonardo
+[15/12/2009 14:36:33] /a 5
+[15/12/2009 14:42:47] /a 5
+[15/12/2009 14:44:07] /bc a server esta em test server... não foi resetado
+[15/12/2009 14:50:38] /a 2
+[15/12/2009 15:11:25] /a 2
+[15/12/2009 15:13:28] /a 2
+[15/12/2009 15:14:19] /addskill revange, magic, 10
+[15/12/2009 15:16:20] /reload movements
+[15/12/2009 15:16:39] /i 426
+[15/12/2009 15:17:02] /attr actionID 42370
